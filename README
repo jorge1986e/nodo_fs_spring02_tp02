@@ -1,0 +1,8 @@
+Geminis:
+
+¿Por qué te pasaba esto?
+DNS: Los clusters de MongoDB Atlas usan "SRV records". Algunos routers o ISPs filtran estas consultas, lo que impide que Mongoose encuentre el servidor. Cambiar los DNS a 1.1.1.1 suele saltarse ese bloqueo.
+
+Conexiones simultáneas: Si ejecutas insert y delete al hilo, Node.js los manda a la base de datos al mismo tiempo. Es una "carrera" donde no sabes quién gana si no usas await dentro de una función organizada.
+
+¿Te gustaría que te ayude a configurar una variable de entorno .env para no dejar tu usuario y contraseña de MongoDB expuestos en el código?
