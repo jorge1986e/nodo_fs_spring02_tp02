@@ -5,4 +5,7 @@ DNS: Los clusters de MongoDB Atlas usan "SRV records". Algunos routers o ISPs fi
 
 Conexiones simultáneas: Si ejecutas insert y delete al hilo, Node.js los manda a la base de datos al mismo tiempo. Es una "carrera" donde no sabes quién gana si no usas await dentro de una función organizada.
 
-¿Te gustaría que te ayude a configurar una variable de entorno .env para no dejar tu usuario y contraseña de MongoDB expuestos en el código?
+Solución: arriba de todo el app.js
+
+const dns = require('node:dns');
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
